@@ -6,20 +6,13 @@ Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'jistr/vim-nerdtree-tabs'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'dense-analysis/ale'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 "Script Plugins ---------------------
-Plug 'neoclide/coc-css', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-vetur', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
-Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
-Plug 'sheerun/vim-polyglot'
-"Snippets------------------
-
-"Plug 'SirVer/ultisnips'
-"
+Plug 'neoclide/coc-vetur', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-tsserver', {'do': 'npm install --frozen-lockfile'}
+Plug 'neoclide/coc-html', {'do': 'npm install --frozen-lockfile'}
+"Plug 'sheerun/vim-polyglot'
 " html
 "" HTML Bundle
 "Plug 'hail2u/vim-css3-syntax'
@@ -44,16 +37,14 @@ Plug 'sheerun/vim-polyglot'
 
 
 " vuejs
-Plug 'posva/vim-vue'
+"Plug 'posva/vim-vue'
 "Plug 'leafOfTree/vim-vue-plugin'
 
 call plug#end()
 "END OF PLUGIN================================================================""
 
-let g:loaded_clipboard_provider = 1 "use to fix error 'provider: clipboard: missing required variable g:loaded_clipboard_provider'
-let g:vue_disable_pre_processors=1
 "CtrlP=========================================================================
-let g:ctrlp_custom_ignore = 'public/\|node_modules/\|vendor/\|tests\/log\|git\|env\|build/\|dist/\|__pycache__\|docs\/build/\|public_html\/api/\|public_html\/docs/\|*.pyc'
+let g:ctrlp_custom_ignore = 'node_modules/\|vendor/\|tests\/log\|git\|env\|build/\|dist/\|__pycache__\|docs\/build/\|public_html\/api/\|public_html\/docs/\|*.pyc'
 let g:ctrlp_match_window = 'bottom,order:ttb'
 let g:ctrlp_max_files=0
 let g:ctrlp_match_current_file = 1
@@ -300,12 +291,12 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current
 " position. Coc only does snippet and additional edit on confirm.
-if has('patch8.1.1068')
+"if has('patch8.1.1068')
   " Use `complete_info` if your (Neo)Vim version supports it.
-  inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-else
+ " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+"else
   imap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-endif
+"endif
 
 " Use `[g` and `]g` to navigate diagnostics
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
