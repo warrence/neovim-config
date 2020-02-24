@@ -16,36 +16,19 @@ Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'sheerun/vim-polyglot'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+Plug 'easymotion/vim-easymotion'
 "Snippets------------------
-
 "Plug 'SirVer/ultisnips'
-"
-" html
-"" HTML Bundle
-"Plug 'hail2u/vim-css3-syntax'
-"Plug 'gorodinskiy/vim-coloresque'
-"Plug 'tpope/vim-haml'
-"Plug 'mattn/emmet-vim'
 
+"" HTML Bundle
+Plug 'hail2u/vim-css3-syntax'
 
 " javascript
-"" Javascript Bundle
-"Plug 'jelera/vim-javascript-syntax'
-
-
-" php
-"" PHP Bundle
-"Plug 'arnaud-lb/vim-php-namespace'
-
-
-" typescript
-"Plug 'leafgarland/typescript-vim'
-"Plug 'HerringtonDarkholme/yats.vim'
-
+Plug 'jelera/vim-javascript-syntax'
 
 " vuejs
 Plug 'posva/vim-vue'
-"Plug 'leafOfTree/vim-vue-plugin'
 
 call plug#end()
 "END OF PLUGIN================================================================""
@@ -160,6 +143,8 @@ nmap <Leader>ev :tabedit $MYVIMRC<cr>
 
 "Add simple highlight removal.
 nmap <Leader><space> :nohlsearch<cr>
+
+nmap <Leader>py <Plug>(Prettier)
 
 "Moving Line key map
 nnoremap <S-j> :m .+1<CR>==
@@ -333,10 +318,6 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Symbol renaming.
 nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code.
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
   autocmd!
