@@ -100,7 +100,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 if exists("*fugitive#statusline")
-  set statusline+=%{FugitiveStatusline()}
+  set statusline+=%{fugitive#statusline()}
 endif
 
 
