@@ -17,6 +17,7 @@ Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'sheerun/vim-polyglot'
 Plug 'jvanja/vim-bootstrap4-snippets'
+Plug 'airblade/vim-gitgutter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-endwise'
@@ -28,7 +29,6 @@ Plug 'hail2u/vim-css3-syntax'
 
 " javascript
 Plug 'jelera/vim-javascript-syntax'
-
 " vuejs
 Plug 'posva/vim-vue'
 
@@ -37,6 +37,13 @@ call plug#end()
 
 let g:loaded_clipboard_provider = 1 "use to fix error 'provider: clipboard: missing required variable g:loaded_clipboard_provider'
 let g:vue_disable_pre_processors=1
+
+" Use fontawesome icons as signs==========================================
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
 
 "CtrlP=========================================================================
 let g:ctrlp_custom_ignore = 'public/\|node_modules/\|vendor/\|tests\/log\|git\|env\|build/\|dist/\|__pycache__\|docs\/build/\|public_html\/api/\|public_html\/docs/\|*.pyc'
@@ -91,7 +98,7 @@ set title
 set titleold="Terminal"
 set titlestring=%F
 
-set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
+"set statusline=%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\
 
 
 " Search mappings: These will make it so that going to the next one in a
@@ -100,8 +107,9 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
+  "set statusline+=%{fugitive#head()}
 endif
+
 
 
 "Map Leader key======================================================
@@ -166,6 +174,7 @@ no <C-h> <C-w>h| "switching to left window
 "Airline=============================================================
 let g:airline_theme = 'powerlineish'
 let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#hunks#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
@@ -261,7 +270,7 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=250
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -366,7 +375,7 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Mappings using CoCList:
 " Show all diagnostics.
