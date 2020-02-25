@@ -1,5 +1,9 @@
 {
     "vetur.format.options.tabSize": 2,
-    "vetur.useWorkspaceDependencies": true,
-    "intelephense.licenceKey": "00GS5HKTVZQP470",
+    "vetur.useWorkspaceDependencies": false,
+    "vetur.format.options.useTabs": true,
+    "vetur.dev.logLevel": "DEBUG",
+    "vetur.trace.server": "messages",
+    "vetur.experimental.templateInterpolationService": true,
+    "intelephense.licenceKey": "00GS5HKTVZQP470"
 }

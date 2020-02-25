@@ -16,8 +16,10 @@ Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-html', {'do': 'yarn install --frozen-lockfile'}
 Plug 'neoclide/coc-json', {'do': 'yarn install --frozen-lockfile'}
 Plug 'sheerun/vim-polyglot'
+Plug 'jvanja/vim-bootstrap4-snippets'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-endwise'
 "Snippets------------------
 "Plug 'SirVer/ultisnips'
 
@@ -35,6 +37,7 @@ call plug#end()
 
 let g:loaded_clipboard_provider = 1 "use to fix error 'provider: clipboard: missing required variable g:loaded_clipboard_provider'
 let g:vue_disable_pre_processors=1
+
 "CtrlP=========================================================================
 let g:ctrlp_custom_ignore = 'public/\|node_modules/\|vendor/\|tests\/log\|git\|env\|build/\|dist/\|__pycache__\|docs\/build/\|public_html\/api/\|public_html\/docs/\|*.pyc'
 let g:ctrlp_match_window = 'bottom,order:ttb'
@@ -97,7 +100,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 if exists("*fugitive#statusline")
-  set statusline+=%{fugitive#statusline()}
+  set statusline+=%{FugitiveStatusline()}
 endif
 
 
@@ -142,7 +145,7 @@ set splitright  "And to the right. This feels more natural.
 nmap <Leader>ev :tabedit $MYVIMRC<cr>
 
 "Add simple highlight removal.
-nmap <Leader><space> :nohlsearch<cr>
+nmap <Leader>nh :nohlsearch<cr>
 
 nmap <Leader>py <Plug>(Prettier)
 
@@ -245,6 +248,7 @@ map <C-n> :NERDTreeTabsToggle<CR>
 
 
 "coc.vim===========================================================
+let g:coc_start_at_startup = 1
 " TextEdit might fail if hidden is not set.
 set hidden
 
