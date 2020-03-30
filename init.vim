@@ -20,7 +20,9 @@ Plug 'jvanja/vim-bootstrap4-snippets'
 Plug 'airblade/vim-gitgutter'
 Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
 Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-endwise'
+Plug 'alvan/vim-closetag'
+Plug 'jiangmiao/auto-pairs'
+Plug 'vim-vdebug/vdebug'
 "Snippets------------------
 "Plug 'SirVer/ultisnips'
 
@@ -37,6 +39,12 @@ call plug#end()
 
 let g:loaded_clipboard_provider = 1 "use to fix error 'provider: clipboard: missing required variable g:loaded_clipboard_provider'
 let g:vue_disable_pre_processors=1
+
+"vim-closetag==================================================================
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml,vue'
 
 " Use fontawesome icons as signs==========================================
 let g:gitgutter_sign_added = '+'
@@ -66,6 +74,7 @@ set mousemodel=popup
 set t_Co=256
 set guioptions=egmrti
 set gfn=Monospace\ 10
+set linespace=10
 
 
 if has("gui_running")
@@ -107,7 +116,7 @@ nnoremap n nzzzv
 nnoremap N Nzzzv
 
 if exists("*fugitive#statusline")
-  "set statusline+=%{fugitive#head()}
+  set statusline+=%{fugitive#head()}
 endif
 
 
@@ -160,10 +169,15 @@ nmap <Leader>py <Plug>(Prettier)
 "Moving Line key map
 nnoremap <S-j> :m .+1<CR>==
 nnoremap <S-k> :m .-2<CR>==
-inoremap <S-j> <Esc>:m .+1<CR>==gi
-inoremap <S-k> <Esc>:m .-2<CR>==gi
+"inoremap <S-j> <Esc>:m .+1<CR>==gi
+"inoremap <S-k> <Esc>:m .-2<CR>==gi
 vnoremap <S-j> :m '>+1<CR>gv=gv
 vnoremap <S-k> :m '<-2<CR>gv=gv
+
+"Switch buffer
+nnoremap <S-h> :bp<CR>
+nnoremap <S-l> :bn<CR>
+
 
 "Switch between different windows by their direction`
 no <C-j> <C-w>j| "switching to below window

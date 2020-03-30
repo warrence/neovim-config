@@ -4,6 +4,6 @@
     "vetur.format.options.useTabs": true,
     "vetur.dev.logLevel": "DEBUG",
     "vetur.trace.server": "messages",
-    "vetur.experimental.templateInterpolationService": true,
+    "vetur.experimental.templateInterpolationService": false,
     "intelephense.licenceKey": "00GS5HKTVZQP470"
 }
